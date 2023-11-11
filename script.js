@@ -5,7 +5,7 @@ let getComputerChoice = () => options[Math.floor(Math.random() * 3)];
 function playerWin(playerSelection, computerSelection) {
     return playerSelection == "scissors" && computerSelection == "paper" || 
            playerSelection == "paper" && computerSelection == "rock" ||
-           playerSelection == "rock" && computerSelection == "paper" ||
+           playerSelection == "rock" && computerSelection == "scissors" ||
            false;
 }
 
@@ -22,4 +22,12 @@ function checkRound(playerSelection, computerSelection) {
         return `You lose! ${format(computerSelection)} beats ${format(playerSelection)}`;
 }
 
-console.log(checkRound("paper", getComputerChoice()))
+function game() {
+    let n = 5;
+    for(let i = 0; i < n; i++) {
+        playerChoice = prompt("Enter with one of these three options: rock, paper, scissors.");
+        console.log(checkRound(playerChoice, getComputerChoice())); 
+    }  
+}
+
+game();
