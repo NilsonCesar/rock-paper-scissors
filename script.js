@@ -1,6 +1,6 @@
-const options = ["rock", "paper", "scissors"];
+const OPTIONS = ["rock", "paper", "scissors"];
 
-let getComputerChoice = () => options[Math.floor(Math.random() * 3)];
+let getComputerChoice = () => OPTIONS[Math.floor(Math.random() * 3)];
 
 function playerWin(playerSelection, computerSelection) {
     return playerSelection == "scissors" && computerSelection == "paper" || 
