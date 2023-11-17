@@ -22,12 +22,20 @@ function checkRound(playerSelection, computerSelection) {
         return `You lose! ${format(computerSelection)} beats ${format(playerSelection)}`;
 }
 
+let rockButton = document.querySelector(".button-rock");
+let paperButton = document.querySelector(".button-paper");
+let scissorsButton = document.querySelector(".button-scissors");
+
+rockButton.addEventListener("click", () => checkRound("rock", getComputerChoice()));
+paperButton.addEventListener("click", () => checkRound("paper", getComputerChoice()));
+scissorsButton.addEventListener("click", () => checkRound("scissors", getComputerChoice()));
+
 function game() {
-    let n = 5;
-    for(let i = 0; i < n; i++) {
-        playerChoice = prompt("Enter with one of these three options: rock, paper, scissors.");
-        console.log(checkRound(playerChoice, getComputerChoice())); 
-    }  
+    // let n = 5;
+    // for(let i = 0; i < n; i++) {
+    //     playerChoice = prompt("Enter with one of these three options: rock, paper, scissors.");
+    //     console.log(checkRound(playerChoice, getComputerChoice())); 
+    // }  
 }
 
 game();
