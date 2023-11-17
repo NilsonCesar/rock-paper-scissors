@@ -22,20 +22,20 @@ function checkRound(playerSelection, computerSelection) {
         return `You lose! ${format(computerSelection)} beats ${format(playerSelection)}`;
 }
 
+function displayResult(result) {
+    let pResult = document.createElement('p');
+    pResult.textContent = result;
+
+    let divToResult = document.querySelector('.game-result');
+    divToResult.appendChild(pResult);
+}
+
+let makeRound = (choice) => displayResult(checkRound(choice, getComputerChoice()));
+
 let rockButton = document.querySelector(".button-rock");
 let paperButton = document.querySelector(".button-paper");
 let scissorsButton = document.querySelector(".button-scissors");
 
-rockButton.addEventListener("click", () => checkRound("rock", getComputerChoice()));
-paperButton.addEventListener("click", () => checkRound("paper", getComputerChoice()));
-scissorsButton.addEventListener("click", () => checkRound("scissors", getComputerChoice()));
-
-function game() {
-    // let n = 5;
-    // for(let i = 0; i < n; i++) {
-    //     playerChoice = prompt("Enter with one of these three options: rock, paper, scissors.");
-    //     console.log(checkRound(playerChoice, getComputerChoice())); 
-    // }  
-}
-
-game();
+rockButton.addEventListener("click", () => makeRound('rock'));
+paperButton.addEventListener("click", () => makeRound('paper'));
+scissorsButton.addEventListener("click", () => makeRound('scissors'));
