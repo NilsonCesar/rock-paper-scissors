@@ -1,5 +1,6 @@
 const OPTIONS = ["rock", "paper", "scissors"];
 let userPoints = computerPoints = 0;
+let divResult = document.querySelector('.game-result')
 
 let getComputerChoice = () => OPTIONS[Math.floor(Math.random() * 3)];
 
@@ -30,32 +31,28 @@ function checkRound(playerSelection, computerSelection) {
 function displayResult(result) {
     let pResult = document.createElement('p');
     pResult.textContent = result;
-
-    let divToResult = document.querySelector('.game-result');
-    divToResult.appendChild(pResult);
+    divResult.appendChild(pResult);
 }
 
 function displayVictory() {
     let pMessage = document.createElement('p');
     pMessage.textContent = "Congratulations! You win the game! Restarting game...";
-    let divToResult = document.querySelector('.game-result');
-    divToResult.appendChild(pMessage);
+    divResult.appendChild(pMessage);
     restartGame();
 }
 
 function displayDefeat() {
     let pMessage = document.createElement('p');
     pMessage.textContent = "Unfortunately, you don't win the game. But, try again!";
-    let divToResult = document.querySelector('.game-result'); 
-    divToResult.appendChild(pMessage);
+    divResult.appendChild(pMessage);
     restartGame();
 }
 
 function restartGame() {
-    
-    userPoints = computerPoints = 0;
-    let divToResult = document.querySelector('.game-result');
-    setTimeout(() => divToResult.textContent = '', 3000);
+    setTimeout(() => {
+        divResult.textContent = '';
+        userPoints = computerPoints = 0;
+     }, 3000);
 }
 
 let makeRound = (choice) => {
